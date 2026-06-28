@@ -1,0 +1,294 @@
+/* ═══════════════════════════════════════════════════════════════════
+   CUSTOMER PURCHASE ANALYTICS — DESIGN TOKENS
+   Source: DESIGN-voltagent.md (Voltagent design language v:alpha)
+   All values are 1:1 mapped from the design system.
+   DO NOT add hardcoded hex values in component files.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Color Tokens ───────────────────────────────────────────────── */
+:root {
+  /* Brand Accent — reserved for CTAs, status pills, active indicators */
+  --color-primary:        #00d992;
+  --color-primary-soft:   #2fd6a1;
+  --color-primary-deep:   #10b981;
+  --color-on-primary:     #101010;
+
+  /* Surface */
+  --color-canvas:         #101010;
+  --color-canvas-soft:    #1a1a1a;
+  --color-canvas-text-soft: #f5f6f7;
+
+  /* Text */
+  --color-ink:            #f2f2f2;
+  --color-ink-strong:     #ffffff;
+  --color-body:           #bdbdbd;
+  --color-mute:           #8b949e;
+
+  /* Borders */
+  --color-hairline:       #3d3a39;
+  --color-hairline-soft:  #b8b3b0;
+
+  /* ── Semantic Colours (dashboard-specific) ── */
+  --color-success:        #00d992;  /* primary green = success in this system */
+  --color-warning:        #f59e0b;  /* amber for declining trends */
+  --color-danger:         #f87171;  /* red for negative spend change */
+  --color-neutral:        #8b949e;  /* mute for first-purchase labels */
+
+  /* ── Spacing Scale (base unit: 4px) ── */
+  --space-xxs:  2px;
+  --space-xs:   4px;
+  --space-sm:   8px;
+  --space-md:   12px;
+  --space-lg:   16px;
+  --space-xl:   20px;
+  --space-2xl:  24px;
+  --space-3xl:  32px;
+  --space-4xl:  40px;
+  --space-5xl:  48px;
+  --space-6xl:  64px;
+
+  /* ── Border Radius Scale ── */
+  --radius-none: 0px;
+  --radius-xs:   4px;
+  --radius-sm:   6px;
+  --radius-md:   8px;
+  --radius-pill: 9999px;
+  --radius-full: 9999px;
+
+  /* ── Typography Scale ── */
+  --font-sans: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+
+  /* Display */
+  --text-display-xl-size:    60px;
+  --text-display-xl-weight:  400;
+  --text-display-xl-lh:      60px;
+  --text-display-xl-ls:      -0.65px;
+
+  --text-display-lg-size:    36px;
+  --text-display-lg-weight:  400;
+  --text-display-lg-lh:      40px;
+  --text-display-lg-ls:      -0.9px;
+
+  --text-display-md-size:    24px;
+  --text-display-md-weight:  700;
+  --text-display-md-lh:      32px;
+  --text-display-md-ls:      -0.6px;
+
+  --text-display-sm-size:    20px;
+  --text-display-sm-weight:  600;
+  --text-display-sm-lh:      28px;
+
+  /* Eyebrow */
+  --text-eyebrow-mono-size:    14px;
+  --text-eyebrow-mono-weight:  600;
+  --text-eyebrow-mono-lh:      20px;
+  --text-eyebrow-mono-ls:      2.52px;
+
+  /* Body */
+  --text-body-lg-size:    18px;
+  --text-body-lg-weight:  400;
+  --text-body-lg-lh:      28px;
+
+  --text-body-md-size:    16px;
+  --text-body-md-weight:  400;
+  --text-body-md-lh:      26px;
+
+  --text-body-md-strong-weight: 600;
+  --text-body-md-strong-lh:     24px;
+
+  --text-body-sm-size:    14px;
+  --text-body-sm-weight:  400;
+  --text-body-sm-lh:      20px;
+
+  --text-body-sm-strong-weight: 600;
+  --text-body-sm-strong-lh:     23px;
+
+  /* Caption */
+  --text-caption-size:    12px;
+  --text-caption-weight:  400;
+  --text-caption-lh:      16px;
+
+  /* Code */
+  --text-code-size:    13px;
+  --text-code-weight:  400;
+  --text-code-lh:      18px;
+
+  /* Button */
+  --text-button-md-size:    16px;
+  --text-button-md-weight:  600;
+  --text-button-md-lh:      24px;
+
+  /* ── Elevation (from DESIGN-voltagent.md §Elevation & Depth) ── */
+  --shadow-none:   none;
+  --shadow-glow:   0 0 15px rgba(92, 88, 85, 0.2);
+  --shadow-modal:  0 20px 60px rgba(0,0,0,0.7), 0 0 0 1px rgba(148,163,184,0.1) inset;
+  --shadow-primary-glow: 0 0 20px rgba(0, 217, 146, 0.15);
+
+  /* ── Z-index Scale ── */
+  --z-base:    0;
+  --z-raised:  10;
+  --z-sticky:  100;
+  --z-overlay: 200;
+  --z-modal:   300;
+  --z-toast:   400;
+
+  /* ── Animation ── */
+  --transition-fast:   150ms ease;
+  --transition-base:   200ms ease;
+  --transition-slow:   300ms ease;
+
+  /* ── Layout ── */
+  --container-max:  1280px;
+  --navbar-height:  60px;
+  --sidebar-width:  240px;
+  --page-gutter:    var(--space-3xl);
+}
+
+/* ── Global Reset ─────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-body-md-size);
+  font-weight: var(--text-body-md-weight);
+  line-height: var(--text-body-md-lh);
+  color: var(--color-ink);
+  background-color: var(--color-canvas);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Inter OpenType features as specified in DESIGN-voltagent.md */
+  font-feature-settings: "calt" 1, "rlig" 1;
+}
+
+button { font-family: inherit; }
+
+/* ── Focus Rings (WCAG AA — do not remove) ─────────────────────── */
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-xs);
+}
+
+/* ── Scrollbar (dark theme) ─────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--color-canvas); }
+::-webkit-scrollbar-thumb { background: var(--color-hairline); border-radius: var(--radius-pill); }
+::-webkit-scrollbar-thumb:hover { background: var(--color-mute); }
+
+/* ── Typography Utility Classes ─────────────────────────────────── */
+.text-display-xl {
+  font-family: var(--font-sans);
+  font-size: var(--text-display-xl-size);
+  font-weight: var(--text-display-xl-weight);
+  line-height: var(--text-display-xl-lh);
+  letter-spacing: var(--text-display-xl-ls);
+}
+
+.text-display-lg {
+  font-family: var(--font-sans);
+  font-size: var(--text-display-lg-size);
+  font-weight: var(--text-display-lg-weight);
+  line-height: var(--text-display-lg-lh);
+  letter-spacing: var(--text-display-lg-ls);
+}
+
+.text-display-md {
+  font-family: var(--font-sans);
+  font-size: var(--text-display-md-size);
+  font-weight: var(--text-display-md-weight);
+  line-height: var(--text-display-md-lh);
+  letter-spacing: var(--text-display-md-ls);
+}
+
+.text-display-sm {
+  font-family: var(--font-sans);
+  font-size: var(--text-display-sm-size);
+  font-weight: var(--text-display-sm-weight);
+  line-height: var(--text-display-sm-lh);
+}
+
+.text-eyebrow {
+  font-family: var(--font-sans);
+  font-size: var(--text-eyebrow-mono-size);
+  font-weight: var(--text-eyebrow-mono-weight);
+  line-height: var(--text-eyebrow-mono-lh);
+  letter-spacing: var(--text-eyebrow-mono-ls);
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.text-code {
+  font-family: var(--font-mono);
+  font-size: var(--text-code-size);
+  font-weight: var(--text-code-weight);
+  line-height: var(--text-code-lh);
+}
+
+.text-mute { color: var(--color-mute); }
+.text-body { color: var(--color-body); }
+.text-ink  { color: var(--color-ink); }
+.text-primary { color: var(--color-primary); }
+
+/* ── Code Inline Chip ────────────────────────────────────────────── */
+code, .code-chip {
+  font-family: var(--font-mono);
+  font-size: var(--text-code-size);
+  background: var(--color-canvas-soft);
+  color: var(--color-canvas-text-soft);
+  padding: var(--space-xxs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-hairline);
+}
+
+/* ── Section Divider (dashed rhythm cue from DESIGN-voltagent.md) ── */
+.section-divider {
+  border: none;
+  border-top: 1px dashed rgba(79, 93, 117, 0.4);
+  margin: var(--space-5xl) 0;
+}
+
+/* ── Green Divider Band ────────────────────────────────────────── */
+.green-divider-band {
+  border-top: 2px solid var(--color-primary);
+  border-bottom: 2px solid var(--color-primary);
+  padding: var(--space-sm) 0;
+}
+
+/* ── Reduced Motion ──────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Responsive Breakpoints ──────────────────────────────────────── */
+/* Mobile  < 768px  — hero 60→32px, cards 1-up, nav hamburger       */
+/* Tablet  768–1023px — cards 2-up, nav horizontal                   */
+/* Desktop ≥ 1024px  — full 3-up grids, sidebar                      */
+
+/* ── Responsive: Dashboard KPI Grid ─────────────────────────────── */
+@media (max-width: 767px) {
+  /* All grid rows collapse to 1-up on mobile */
+  /* page gutter reduces on small screens */
+  :root {
+    --page-gutter: var(--space-lg);
+  }
+}
+
+@media (max-width: 1023px) and (min-width: 768px) {
+  /* Tablet: 2-up max */
+  :root {
+    --page-gutter: var(--space-2xl);
+  }
+}
