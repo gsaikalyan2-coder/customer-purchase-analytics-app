@@ -1,0 +1,30 @@
+# render.yaml — Infrastructure as Code for Render deployment
+# Source: render.com/docs/infrastructure-as-code
+# This file defines the FastAPI backend web service.
+
+services:
+  - name: customer-purchase-analytics-api
+    type: web
+    env: python
+    region: singapore                  # Closest to Supabase ap-south-1 (Mumbai)
+    plan: free
+    branch: main
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: SUPABASE_URL
+        sync: false                    # Saikalyan enters this in Render dashboard
+      - key: SUPABASE_ANON_KEY
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: ALLOWED_ORIGINS
+        sync: false                    # Will be set to the Vercel frontend URL after deploy
